@@ -50,13 +50,6 @@ const Navbar = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <button
-            onClick={toggleTheme}
-            className="w-9 h-9 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
-            aria-label="Toggle theme"
-          >
-            {isDark ? "☀️" : "🌙"}
-          </button>
           <Button variant="heroOutline" size="sm">
             Log In
           </Button>
