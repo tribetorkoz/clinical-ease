@@ -17,8 +17,9 @@ const Navbar = () => {
   const links = [
     { label: "Problem", href: "#problem" },
     { label: "Solution", href: "#solution" },
+    { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Roadmap", href: "#roadmap" },
+    { label: "FAQ", href: "#faq" },
   ];
 
   return (

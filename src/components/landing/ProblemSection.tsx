@@ -1,42 +1,21 @@
 import { motion } from "framer-motion";
-import { TrendingDown, PhoneOff, UserX, DollarSign, Clock, Users } from "lucide-react";
+import { PhoneOff, DollarSign, UserX } from "lucide-react";
 
-const stats = [
+const problems = [
   {
     icon: PhoneOff,
-    value: "30–34%",
-    label: "Calls go unanswered",
-    source: "Practice Builders, 2025",
+    title: "Missed Calls",
+    description: "Up to 34% of patient calls go unanswered during business hours. After hours? Even more.",
   },
   {
     icon: DollarSign,
-    value: "$200K–$500K",
-    label: "Revenue lost per clinic/year",
-    source: "Patient10x, 2025",
+    title: "Lost Revenue",
+    description: "Each missed call can cost $150–$300 in lost appointments. That adds up to thousands every month.",
   },
   {
     icon: UserX,
-    value: "67–80%",
-    label: "Patients won't leave voicemail",
-    source: "Simbo AI, 2025",
-  },
-  {
-    icon: Clock,
-    value: "72%",
-    label: "Patients book by phone",
-    source: "notifyMD, 2024",
-  },
-  {
-    icon: TrendingDown,
-    value: "$150B",
-    label: "No-show losses annually (US)",
-    source: "Curogram, 2025",
-  },
-  {
-    icon: Users,
-    value: "78%",
-    label: "Physicians report staff shortage",
-    source: "Athenahealth",
+    title: "Patients Leave",
+    description: "Most patients won't leave a voicemail — they'll call your competitor instead.",
   },
 ];
 
@@ -55,32 +34,30 @@ const ProblemSection = () => {
             The Problem
           </span>
           <h2 className="text-3xl sm:text-5xl font-bold mt-4 mb-6 tracking-tight">
-            Every missed call is a
+            Your phone is your
             <br />
-            <span className="text-gradient">lost patient.</span>
+            <span className="text-gradient">biggest bottleneck.</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Small clinics lose hundreds of thousands in revenue every year because they
-            simply can't answer the phone fast enough.
+            Clinics lose patients every day simply because no one picked up the phone.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {stats.map((stat, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {problems.map((item, i) => (
             <motion.div
-              key={stat.label}
+              key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all duration-300 hover:shadow-soft"
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all duration-300 hover:shadow-soft text-center"
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
-                <stat.icon className="w-5 h-5 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 mx-auto group-hover:bg-primary/15 transition-colors">
+                <item.icon className="w-6 h-6 text-primary" />
               </div>
-              <div className="text-2xl font-bold text-foreground mb-1">{stat.value}</div>
-              <div className="text-sm text-muted-foreground mb-3">{stat.label}</div>
-              <div className="text-xs text-muted-foreground/60">{stat.source}</div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">{item.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
